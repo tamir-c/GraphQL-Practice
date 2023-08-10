@@ -16,13 +16,13 @@ const resolvers = {
         authors() {
             return db.authors
         },
-        review(parent, args) {
+        review(_, args) {
             return db.reviews.find((review) => review.id === args.id)
         },
-        game(parent, args) {
+        game(_, args) {
             return db.games.find((game) => game.id === args.id)
         },
-        author(parent, args) {
+        author(_, args) {
             return db.authors.find((author) => author.id === args.id)
         }
     },
@@ -77,3 +77,4 @@ const server = new ApolloServer({
 const {url} = await startStandaloneServer(server, {
     listen: {port: 4000}
 })
+
